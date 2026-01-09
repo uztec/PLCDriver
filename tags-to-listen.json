@@ -1,0 +1,1215 @@
+[
+   {
+      "tagCode": "FOB_3660_10140102_RUN",
+      "machineCode": "bavelloni-1",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140102_STOP",
+      "machineCode": "bavelloni-1",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140102_MAN",
+      "machineCode": "bavelloni-1",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setManual",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140102_PIECES",
+      "machineCode": "bavelloni-1",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140305_RUN",
+      "machineCode": "bavelloni-2",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140305_STOP",
+      "machineCode": "bavelloni-2",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140305_MAN",
+      "machineCode": "bavelloni-2",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setManual",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140305_PIECES",
+      "machineCode": "bavelloni-2",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "RACK_A_EMPTY_BAVELLONI_2",
+      "machineCode": "bavelloni-2",
+      "startDate": "2021-02-16T12:17:00",
+      "readWrite": "read",
+      "function": "rackAEmpty",
+      "listenable": true
+   },
+   {
+      "tagCode": "RACK_B_EMPTY_BAVELLONI_2",
+      "machineCode": "bavelloni-2",
+      "startDate": "2021-02-16T12:17:00",
+      "readWrite": "read",
+      "function": "rackBEmpty",
+      "listenable": true
+   },
+   {
+      "tagCode": "FOB_3660_10140103_RUN",
+      "machineCode": "intermac",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140103_STOP",
+      "machineCode": "intermac",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140103_MAN",
+      "machineCode": "intermac",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setManual",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140103_PIECES",
+      "machineCode": "intermac",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140101_RUN",
+      "machineCode": "intraco",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140101_STOP",
+      "machineCode": "intraco",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140101_MAN",
+      "machineCode": "intraco",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setManual",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140101_PIECES",
+      "machineCode": "intraco",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "RACK_A_EMPTY_SCHIATT_1",
+      "machineCode": "schiatti-1",
+      "startDate": "2021-03-17T13:14:49",
+      "readWrite": "read",
+      "function": "rackAEmpty",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "RACK_B_EMPTY_SCHIATT_1",
+      "machineCode": "schiatti-1",
+      "startDate": "2021-03-17T13:16:43",
+      "readWrite": "read",
+      "function": "rackBEmpty",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140301_RUN",
+      "machineCode": "schiatti-1",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140301_STOP",
+      "machineCode": "schiatti-1",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140301_MAN",
+      "machineCode": "schiatti-1",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setManual",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140301_PIECES",
+      "machineCode": "schiatti-1",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140302_RUN",
+      "machineCode": "schiatti-2",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140302_STOP",
+      "machineCode": "schiatti-2",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140302_MAN",
+      "machineCode": "schiatti-2",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setManual",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140302_PIECES",
+      "machineCode": "schiatti-2",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140303_RUN",
+      "machineCode": "schiatti-3",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140303_STOP",
+      "machineCode": "schiatti-3",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140303_MAN",
+      "machineCode": "schiatti-3",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setManual",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140303_PIECES",
+      "machineCode": "schiatti-3",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10160121_RUN",
+      "machineCode": "thieme",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10160121_STOP",
+      "machineCode": "thieme",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10160121_MAN",
+      "machineCode": "thieme",
+      "startDate": "2019-08-05T15:38:00",
+      "readWrite": "read",
+      "function": "setManual",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10160121_PIECES",
+      "machineCode": "thieme",
+      "startDate": "2019-08-05T15:47:00",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3665_10190402_RUN",
+      "machineCode": "lisec",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3665_10190402_STOP",
+      "machineCode": "lisec",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3665_10190402_MAN",
+      "machineCode": "lisec",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setManual",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3665_10190402_PIECES",
+      "machineCode": "lisec",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3665_10190402_PARTNUMBER_IHM",
+      "machineCode": "lisec",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setPartNumber",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150304_RUN",
+      "machineCode": "glassline",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150304_STOP",
+      "machineCode": "glassline",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150304_MAN",
+      "machineCode": "glassline",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setManual",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150304_PIECES",
+      "machineCode": "glassline",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10160101_RUN",
+      "machineCode": "keraglass",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10160101_STOP",
+      "machineCode": "keraglass",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10160101_MAN",
+      "machineCode": "keraglass",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setManual",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10160101_PIECES",
+      "machineCode": "keraglass",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150201_RUN",
+      "machineCode": "waterjet-1",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150201_STOP",
+      "machineCode": "waterjet-1",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150201_MAN",
+      "machineCode": "waterjet-1",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setManual",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150201_PIECES",
+      "machineCode": "waterjet-1",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150202_RUN",
+      "machineCode": "waterjet-2",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150202_STOP",
+      "machineCode": "waterjet-2",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150202_MAN",
+      "machineCode": "waterjet-2",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setManual",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150202_PIECES",
+      "machineCode": "waterjet-2",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150203_RUN",
+      "machineCode": "waterjet-3",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150203_STOP",
+      "machineCode": "waterjet-3",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150203_MAN",
+      "machineCode": "waterjet-3",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setManual",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150203_PIECES",
+      "machineCode": "waterjet-3",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10170300_RUN",
+      "machineCode": "chf",
+      "startDate": "2020-12-08T08:30:00",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10170300_PIECES",
+      "machineCode": "chf",
+      "startDate": "2020-12-08T08:50:04",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10170300_STOP",
+      "machineCode": "chf",
+      "startDate": "2020-12-08T12:20:33",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "CHF machine Stopped"
+   },
+   {
+      "tagCode": "FOB_3660_10140203_MAN",
+      "machineCode": "rohmer-3",
+      "startDate": "2019-08-05T15:38:00",
+      "readWrite": "read",
+      "function": "setManual",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140203_STOP",
+      "machineCode": "rohmer-3",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140203_PIECES",
+      "machineCode": "rohmer-3",
+      "startDate": "2019-08-05T15:47:00",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140203_RUN",
+      "machineCode": "rohmer-3",
+      "startDate": "2019-03-20T00:00:00",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10160102_RUN",
+      "machineCode": "keraglass-2",
+      "startDate": "2021-07-27T13:00:39",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10160102_STOP",
+      "machineCode": "keraglass-2",
+      "startDate": "2021-07-27T13:01:52",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10160102_PIECES",
+      "machineCode": "keraglass-2",
+      "startDate": "2021-07-27T13:02:33",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140100_RUN",
+      "machineCode": "micra-1",
+      "startDate": "2020-05-19T14:48:08",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140100_STOP",
+      "machineCode": "micra-1",
+      "startDate": "2020-05-19T14:49:48",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140100_MAN",
+      "machineCode": "micra-1",
+      "startDate": "2020-05-19T14:50:26",
+      "readWrite": "read",
+      "function": "setManual",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140100_PIECES",
+      "machineCode": "micra-1",
+      "startDate": "2020-05-19T14:58:25",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140201_RUN",
+      "machineCode": "rohmer-1",
+      "startDate": "2019-09-05T08:18:54",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140201_MAN",
+      "machineCode": "rohmer-1",
+      "startDate": "2019-09-05T08:25:07",
+      "readWrite": "read",
+      "function": "setManual",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140201_STOP",
+      "machineCode": "rohmer-1",
+      "startDate": "2019-09-05T08:27:03",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140201_PIECES",
+      "machineCode": "rohmer-1",
+      "startDate": "2019-09-05T08:28:41",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "RACK_A_EMPTY_ROHMER_1",
+      "machineCode": "rohmer-1",
+      "startDate": "2021-04-27T12:35:45",
+      "readWrite": "read",
+      "function": "rackAEmpty",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "RACK_B_EMPTY_ROHMER_1",
+      "machineCode": "rohmer-1",
+      "startDate": "2021-04-27T12:36:34",
+      "readWrite": "read",
+      "function": "rackBEmpty",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "RACK_A_EMPTY_ROHMER_2",
+      "machineCode": "rohmer-2",
+      "startDate": "2021-04-27T12:43:15",
+      "readWrite": "read",
+      "function": "rackAEmpty",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "RACK_B_EMPTY_ROHMER_2",
+      "machineCode": "rohmer-2",
+      "startDate": "2021-04-27T12:44:33",
+      "readWrite": "read",
+      "function": "rackBEmpty",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140202_RUN",
+      "machineCode": "rohmer-2",
+      "startDate": "2020-07-08T13:47:43",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140202_MAN",
+      "machineCode": "rohmer-2",
+      "startDate": "2020-07-08T13:51:22",
+      "readWrite": "read",
+      "function": "setManual",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140202_STOP",
+      "machineCode": "rohmer-2",
+      "startDate": "2020-07-08T13:59:04",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140202_PIECES",
+      "machineCode": "rohmer-2",
+      "startDate": "2020-07-08T14:02:35",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10170102_RUN",
+      "machineCode": "tamglass-2",
+      "startDate": "2020-12-08T09:07:55",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10170102_STOP",
+      "machineCode": "tamglass-2",
+      "startDate": "2020-12-08T09:08:35",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10170102_PIECES",
+      "machineCode": "tamglass-2",
+      "startDate": "2020-12-08T09:09:00",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10160111_STOP",
+      "machineCode": "svecia-1",
+      "startDate": "2020-07-30T11:40:55",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10160111_RUN",
+      "machineCode": "svecia-1",
+      "startDate": "2020-07-30T11:41:41",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10160111_PIECES",
+      "machineCode": "svecia-1",
+      "startDate": "2020-07-30T11:59:52",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10160112_RUN",
+      "machineCode": "svecia-2",
+      "startDate": "2020-08-27T09:49:35",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10160112_STOP",
+      "machineCode": "svecia-2",
+      "startDate": "2020-08-27T09:50:29",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10160112_PIECES",
+      "machineCode": "svecia-2",
+      "startDate": "2020-08-27T09:51:09",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10160123_STOP",
+      "machineCode": "thieme-3",
+      "startDate": "2020-07-31T10:16:53",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10160123_RUN",
+      "machineCode": "thieme-3",
+      "startDate": "2020-07-31T10:17:49",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10160123_PIECES",
+      "machineCode": "thieme-3",
+      "startDate": "2020-07-31T10:20:47",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140106_RUN",
+      "machineCode": "micra-2",
+      "startDate": "2020-06-19T09:49:22",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140106_MAN",
+      "machineCode": "micra-2",
+      "startDate": "2020-06-19T09:50:14",
+      "readWrite": "read",
+      "function": "setManual",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140106_STOP",
+      "machineCode": "micra-2",
+      "startDate": "2020-06-19T09:50:50",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140106_PIECES",
+      "machineCode": "micra-2",
+      "startDate": "2020-06-19T09:53:26",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "RACK_A_EMPTY_MICRA_2",
+      "machineCode": "micra-2",
+      "startDate": "2021-02-26T11:57:23",
+      "readWrite": "read",
+      "function": "rackAEmpty",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "RACK_A_EMPTY_INTERMAC_2",
+      "machineCode": "intermac-2",
+      "startDate": "2021-02-25T12:08:23",
+      "readWrite": "read",
+      "function": "rackAEmpty",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "RACK_B_EMPTY_INTERMAC_2",
+      "machineCode": "intermac-2",
+      "startDate": "2021-02-25T12:09:32",
+      "readWrite": "read",
+      "function": "rackBEmpty",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140104_RUN",
+      "machineCode": "intermac-2",
+      "startDate": "2020-05-19T15:00:14",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140104_STOP",
+      "machineCode": "intermac-2",
+      "startDate": "2020-05-19T15:00:43",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140104_MAN",
+      "machineCode": "intermac-2",
+      "startDate": "2020-05-19T15:01:08",
+      "readWrite": "read",
+      "function": "setManual",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140104_PIECES",
+      "machineCode": "intermac-2",
+      "startDate": "2020-05-19T15:03:27",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10180323_RUN",
+      "machineCode": "edge",
+      "startDate": "2020-11-19T08:15:37",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10180323_STOP",
+      "machineCode": "edge",
+      "startDate": "2020-11-19T08:16:27",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10180323_PIECES",
+      "machineCode": "edge",
+      "startDate": "2020-11-19T08:21:16",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150204_RUN",
+      "machineCode": "waterjet-4",
+      "startDate": "2020-12-07T16:37:29",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150204_STOP",
+      "machineCode": "waterjet-4",
+      "startDate": "2020-12-07T16:38:34",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150204_PIECES",
+      "machineCode": "waterjet-4",
+      "startDate": "2020-12-07T16:39:30",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150206_RUN",
+      "machineCode": "waterjet-5",
+      "startDate": "2020-12-07T16:53:20",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150206_STOP",
+      "machineCode": "waterjet-5",
+      "startDate": "2020-12-07T16:54:01",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150206_PIECES",
+      "machineCode": "waterjet-5",
+      "startDate": "2020-12-07T16:54:36",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150207_RUN",
+      "machineCode": "waterjet-6",
+      "startDate": "2020-12-08T07:35:55",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150207_STOP",
+      "machineCode": "waterjet-6",
+      "startDate": "2020-12-08T07:36:41",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150207_PIECES",
+      "machineCode": "waterjet-6",
+      "startDate": "2020-12-08T07:37:26",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150208_RUN",
+      "machineCode": "waterjet-7",
+      "startDate": "2020-12-08T07:44:21",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150208_STOP",
+      "machineCode": "waterjet-7",
+      "startDate": "2020-12-08T07:45:08",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150208_PIECES",
+      "machineCode": "waterjet-7",
+      "startDate": "2020-12-08T07:46:09",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "RACK_A_EMPTY_INTERMAC_3",
+      "machineCode": "intermac-3",
+      "startDate": "2021-02-25T12:25:17",
+      "readWrite": "read",
+      "function": "rackAEmpty",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "RACK_B_EMPTY_INTERMAC_3",
+      "machineCode": "intermac-3",
+      "startDate": "2021-02-25T12:25:54",
+      "readWrite": "read",
+      "function": "rackBEmpty",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140108_STOP",
+      "machineCode": "intermac-3",
+      "startDate": "2020-12-21T11:56:29",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140108_MAN",
+      "machineCode": "intermac-3",
+      "startDate": "2020-12-21T11:57:08",
+      "readWrite": "read",
+      "function": "setManual",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140108_RUN",
+      "machineCode": "intermac-3",
+      "startDate": "2020-12-21T11:57:58",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10140108_PIECES",
+      "machineCode": "intermac-3",
+      "startDate": "2020-12-22T10:44:47",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "NULL"
+   },
+   {
+      "tagCode": "FOB_3660_10150209_RUN",
+      "machineCode": "waterjet-8",
+      "startDate": "2021-04-20T10:24:52",
+      "readWrite": "read",
+      "function": "setAutomatic",
+      "listenable": true,
+      "description": "Set Automatica"
+   },
+   {
+      "tagCode": "FOB_3660_10150209_STOP",
+      "machineCode": "waterjet-8",
+      "startDate": "2021-04-20T10:26:46",
+      "readWrite": "read",
+      "function": "setStopped",
+      "listenable": true,
+      "description": "Stop"
+   },
+   {
+      "tagCode": "FOB_3660_10150209_MAN",
+      "machineCode": "waterjet-8",
+      "startDate": "2021-04-20T10:27:07",
+      "readWrite": "read",
+      "function": "setManual",
+      "listenable": true,
+      "description": "Manual"
+   },
+   {
+      "tagCode": "FOB_3660_10150209_PIECES",
+      "machineCode": "waterjet-8",
+      "startDate": "2021-04-20T10:27:30",
+      "readWrite": "read",
+      "function": "counter",
+      "listenable": true,
+      "description": "Counter"
+   }
+]

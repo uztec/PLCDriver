@@ -1,0 +1,14 @@
+{
+  "plc": {
+    "ip": "10.37.156.6",
+    "port": 4840,
+    "slot": 0,
+    "scanRate": 500
+  },
+  "database": {
+    "connectionString": "tag-queue.db"
+  },
+  "api": {
+    "url": "http://localhost:9001/api/v1/"
+  }
+}

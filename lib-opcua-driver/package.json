@@ -1,0 +1,28 @@
+{
+  "name": "opcua-driver",
+  "version": "1.0.0",
+  "description": "OPC UA driver for Node.js to communicate with CODESYS PLCs",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "listAllTags": "node examples/listAllTags.js",
+    "readTag": "node examples/readBoolTag.js"
+  },
+  "keywords": [
+    "opcua",
+    "opc-ua",
+    "plc",
+    "codesys",
+    "industrial",
+    "automation"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "debug": "^4.3.4",
+    "node-opcua": "^2.115.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0"
+  }
+}

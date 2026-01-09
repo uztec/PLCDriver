@@ -1,51 +1,21 @@
 {
-  "name": "ethernetip-driver",
+  "name": "supervisory-driver",
   "version": "1.0.0",
-  "description": "EtherNet/IP protocol driver for Node.js to communicate with PLCs",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "test": "node test/test.js",
-    "example": "node examples/basic.js",
-    "discovery": "node examples/discovery.js",
-    "listTags": "node examples/listTags.js",
-    "complete": "node examples/complete.js",
-    "simulator": "node examples/simulator.js",
-    "testConnection": "node examples/testConnection.js",
-    "readBool": "node examples/readBoolTag.js",
-    "properties": "node examples/getPLCProperties.js",
-    "readVerbose": "DEBUG=ethernetip:* node examples/readTagVerbose.js",
-    "testEDS": "node examples/testEDSPaths.js",
-    "deepDiagnostic": "node examples/deepDiagnostic.js",
-    "testStructure": "node examples/testSendRRDataStructure.js",
-    "testFinal": "node examples/testFinalVariations.js",
-    "testUDP": "node examples/testUDPPort.js",
-    "checkConfig": "node examples/checkAdapterConfig.js",
-    "testAlternatives": "node examples/testAlternatives.js",
-    "opcuaExample": "node examples/opcuaExample.js",
-    "readBoolOPCUA": "node examples/readBoolTagOPCUA.js",
-    "browseOPCUA": "node examples/browseOPCUATags.js",
-    "browseOPCUADetailed": "node examples/browseOPCUADetailed.js",
-    "browseCODESYS": "node examples/browseCODESYSTags.js",
-    "findINT1_RUN": "node examples/findINT1_RUN.js",
-    "listAllTags": "node examples/listAllTags.js"
-  },
-  "keywords": [
-    "ethernetip",
-    "ethernet/ip",
-    "plc",
-    "industrial",
-    "automation",
-    "cip"
-  ],
-  "author": "",
-  "license": "MIT",
+  "description": "Supervisory PLC Driver",
+  "main": "app.js",
+  "author": "Renato Gobet Uzun",
   "dependencies": {
-    "debug": "^4.3.4",
-    "node-opcua": "^2.115.0"
+    "axios": "^1.13.2",
+    "ethernet-ip": "^1.2.5",
+    "node-persistent-queue": "^1.0.5",
+    "sqlite3": "^5.1.7",
+    "dateformat": "^5.0.3",
+    "deep-equal": "^2.2.3",
+    "int64-buffer": "^1.1.0",
+    "task-easy": "^1.0.1"
   },
-  "devDependencies": {
-    "@types/node": "^20.0.0"
-  }
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC"
 }
-
