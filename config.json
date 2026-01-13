@@ -10,5 +10,9 @@
   },
   "api": {
     "url": "http://localhost:9001/api/v1/"
+  },
+  "register": {
+    "processInterval": 10000,
+    "batchSize": 300
   }
 }

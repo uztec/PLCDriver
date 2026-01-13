@@ -2,10 +2,23 @@
  * Read tag using OPC UA
  */
 
-import OPCUADriver from '../src/opcuaDriver.js';
+import OPCUADriver from '../lib-opcua-driver/src/opcuaDriver.js';
+import { readFileSync } from 'fs';
 
-const PLC_IP = process.env.PLC_IP || '10.88.48.100';
-const PLC_PORT = parseInt(process.env.PLC_PORT || '4840');
+// Try to load config.json, fallback to environment variables or defaults
+let PLC_IP = '10.88.48.100';
+let PLC_PORT = 4840;
+
+try {
+  const config = JSON.parse(readFileSync('./config.json', 'utf8'));
+  PLC_IP = config.plc?.ip || PLC_IP;
+  PLC_PORT = config.plc?.port || PLC_PORT;
+} catch (e) {
+  // config.json not found, use environment variables or defaults
+}
+
+PLC_IP = process.env.PLC_IP || PLC_IP;
+PLC_PORT = parseInt(process.env.PLC_PORT || PLC_PORT);
 const TAG_NAME = process.env.TAG_NAME || 'INT1_RUN';
 
 async function readTag() {

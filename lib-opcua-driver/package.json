@@ -4,10 +4,7 @@
   "description": "OPC UA driver for Node.js to communicate with CODESYS PLCs",
   "main": "index.js",
   "type": "module",
-  "scripts": {
-    "listAllTags": "node examples/listAllTags.js",
-    "readTag": "node examples/readBoolTag.js"
-  },
+  "scripts": {},
   "keywords": [
     "opcua",
     "opc-ua",

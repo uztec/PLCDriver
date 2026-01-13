@@ -1,68 +1,137 @@
 'use strict'
+
 const sqlite3 = require('sqlite3').verbose();
+
+// Load configuration
+const config = require('./config.json');
+const dbPath = process.argv[2] || config.database.connectionString; // Allow override via command line argument
+const limit = parseInt(process.argv[3] || '100'); // Allow limit override
+
+let db = null;
 
 main();
 
-function main()
-{
-    initializeDatabase('./tag-queue-verify.db')
-        .then(function (db)
-        {
-            var sql = 'SELECT id, job FROM QUEUE LIMIT 100;';
+async function main() {
+	try {
+		// Initialize database
+		db = await initializeDatabase(dbPath);
 
-            db.each(sql, function (err, row)
-            {
-                if (err)
-                {
-                    throw err;
-                }
+		// Get total count
+		const count = await getQueueCount(db);
+		console.log(`\n -- Total jobs in queue: ${count} -- \n`);
 
-                console.log(row.job);
-            });
+		if (count === 0) {
+			console.log(' -- Queue is empty -- ');
+			await closeDatabase();
+			process.exit(0);
+		}
 
-            var sql2 = 'SELECT count (*) FROM QUEUE;';
-            db.each(sql2, function (err, row)
-            {
-                if (err)
-                {
-                    throw err;
-                }
+		// Get jobs
+		const jobs = await getQueueJobs(db, limit);
+		
+		console.log(` -- Showing ${jobs.length} job(s) (limit: ${limit}) -- \n`);
 
-                console.log(' -- Count: ' + JSON.stringify(row));
-            });
+		// Display jobs
+		jobs.forEach((row, index) => {
+			try {
+				const jobData = JSON.parse(row.job);
+				console.log(`[${index + 1}] ID: ${row.id}`);
+				console.log(`    Tag: ${jobData.tagCode}`);
+				console.log(`    Value: ${JSON.stringify(jobData.value)}`);
+				console.log(`    Date: ${jobData.date}`);
+				console.log('');
+			} catch (error) {
+				console.log(`[${index + 1}] ID: ${row.id}`);
+				console.log(`    Raw: ${row.job}`);
+				console.log(`    Error parsing: ${error.message}`);
+				console.log('');
+			}
+		});
 
-        })
-        .catch(function (reason)
-        {
-            console.log(" -- Erron on Open SQLITE Db - " + reason + " -- ");
-        });
+		// Summary
+		console.log(' -- Summary -- ');
+		console.log(`Total in queue: ${count}`);
+		console.log(`Displayed: ${jobs.length}`);
+		if (count > limit) {
+			console.log(`Hidden: ${count - limit}`);
+		}
+
+		await closeDatabase();
+
+	} catch (err) {
+		console.log(" -- Error on Process -- ");
+		console.log(err);
+		console.log(err.stack);
+		process.exit(1);
+	}
 }
 
-function initializeDatabase(dbPath)
-{
-    return new Promise(function (resolve, reject)
-    {
-        var db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, function (err)
-        {
-            if (err)
-            {
-                return console.error(err.message);
-                reject(err.message);
-            }
-            else
-            {
-                console.log('Connected on SQlite database.');
-            }
-        });
+function getQueueCount(db) {
+	return new Promise((resolve, reject) => {
+		const sql = 'SELECT COUNT(*) as count FROM QUEUE;';
+		db.get(sql, (err, row) => {
+			if (err) {
+				return reject(err);
+			}
+			resolve(row.count);
+		});
+	});
+}
 
-        var query = 'CREATE TABLE IF NOT EXISTS QUEUE (id INTEGER PRIMARY KEY ASC AUTOINCREMENT, job TEXT);'
-        db.exec(query, function (err)
-        {
-            if (err !== null)
-                reject(err);
+function getQueueJobs(db, limit) {
+	return new Promise((resolve, reject) => {
+		const sql = `SELECT id, job FROM QUEUE ORDER BY id ASC LIMIT ${limit};`;
+		db.all(sql, (err, rows) => {
+			if (err) {
+				return reject(err);
+			}
+			resolve(rows || []);
+		});
+	});
+}
 
-            resolve(db);
+function initializeDatabase(dbPath) {
+	return new Promise(function (resolve, reject) {
+		const dbConnection = new sqlite3.Database(dbPath, sqlite3.OPEN_READONLY, function (err) {
+			if (err) {
+				console.error(` -- Error opening database: ${err.message} -- `);
+				return reject(err);
+			} else {
+				console.log(` -- Connected to SQLite database: ${dbPath} -- `);
+			}
+		});
 
-        });
-    });
+		// Verify table exists
+		const query = "SELECT name FROM sqlite_master WHERE type='table' AND name='QUEUE';";
+		dbConnection.get(query, function (err, row) {
+			if (err) {
+				console.error(` -- Error checking table: ${err.message} -- `);
+				return reject(err);
+			}
+
+			if (!row) {
+				console.log(' -- Table QUEUE does not exist -- ');
+				return reject(new Error('Table QUEUE does not exist'));
+			}
+
+			resolve(dbConnection);
+		});
+	});
+}
+
+function closeDatabase() {
+	return new Promise((resolve) => {
+		if (db) {
+			db.close((err) => {
+				if (err) {
+					console.error(' -- Error closing database -- ', err.message);
+				} else {
+					console.log('\n -- Database closed -- ');
+				}
+				resolve();
+			});
+		} else {
+			resolve();
+		}
+	});
 }

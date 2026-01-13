@@ -17,7 +17,13 @@
     "task-easy": "^1.0.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "listener": "node listener.js",
+    "register": "node register.js",
+    "tags": "node tags.js",
+    "verify-db": "node verify-db.js",
+    "listAllTags": "node examples/listAllTags.js",
+    "readTag": "node examples/readBoolTag.js"
   },
   "license": "ISC"
 }
