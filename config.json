@@ -1,6 +1,6 @@
 {
   "plc": {
-    "ip": "10.37.156.6",
+    "ip": "10.88.48.100",
     "port": 4840,
     "slot": 0,
     "scanRate": 500
@@ -9,10 +9,10 @@
     "connectionString": "tag-queue.db"
   },
   "api": {
-    "url": "http://localhost:9001/api/v1/"
+    "url": "http://10.88.48.20/supervisory/api/v1/"
   },
   "register": {
     "processInterval": 10000,
-    "batchSize": 300
+    "batchSize": 100
   }
 }

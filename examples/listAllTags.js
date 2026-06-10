@@ -1,16 +1,12 @@
 /**
- * List variables (tags) from an OPC UA server via browse.
- *
- * Siemens (TIA / ns=3):
- *   OPCUA_NAMESPACE=ns=3 npm run listAllTags
- *   node examples/listAllTags.js --ns=3
+ * List all available tags from CODESYS OPC UA server
  */
 
 import OPCUADriver from '../lib-opcua-driver/src/opcuaDriver.js';
 import { readFileSync } from 'fs';
 
 // Try to load config.json, fallback to environment variables or defaults
-let PLC_IP = '10.88.48.51';
+let PLC_IP = '10.88.48.100';
 let PLC_PORT = 4840;
 
 try {
@@ -22,26 +18,11 @@ try {
 }
 
 PLC_IP = process.env.PLC_IP || PLC_IP;
-PLC_PORT = parseInt(process.env.PLC_PORT || PLC_PORT, 10);
-
-function namespaceFromArgv() {
-  const arg = process.argv.find((a) => a.startsWith('--ns='));
-  if (arg) {
-    return arg.slice('--ns='.length).trim() || null;
-  }
-  return null;
-}
-
-/** Must match the start of NodeId strings, e.g. ns=3 or ns=4 */
-const OPCUA_NAMESPACE =
-  namespaceFromArgv() ||
-  process.env.OPCUA_NAMESPACE ||
-  'ns=4';
+PLC_PORT = parseInt(process.env.PLC_PORT || PLC_PORT);
 
 async function listAllTags() {
-  console.log('=== Listing OPC UA variables (tags) ===\n');
-  console.log(`PLC: ${PLC_IP}:${PLC_PORT}`);
-  console.log(`Namespace filter (variables only): ${OPCUA_NAMESPACE}\n`);
+  console.log('=== Listing All Tags from CODESYS OPC UA Server ===\n');
+  console.log(`PLC: ${PLC_IP}:${PLC_PORT}\n`);
 
   const driver = new OPCUADriver(PLC_IP, PLC_PORT);
 
@@ -52,19 +33,13 @@ async function listAllTags() {
 
     console.log('Browsing all tags (this may take a moment)...\n');
     
-    const genericStarts = [
-      { nodeId: 'RootFolder', description: 'Root Folder' },
-      { nodeId: 'ns=0;i=85', description: 'Objects (ns=0;i=85)' }
+    // Try different starting points for CODESYS
+    const startingPoints = [
+      { nodeId: "RootFolder", description: "Root Folder" },
+      { nodeId: "ns=4;s=|var|", description: "Namespace 4 Variables" },
+      { nodeId: "ns=4;s=|plc|", description: "Namespace 4 PLC" },
+      { nodeId: "ns=2;s=DeviceSet", description: "Device Set" }
     ];
-    const codesysStarts = [
-      { nodeId: 'ns=4;s=|var|', description: 'CODESYS ns=4 |var|' },
-      { nodeId: 'ns=4;s=|plc|', description: 'CODESYS ns=4 |plc|' },
-      { nodeId: 'ns=2;s=DeviceSet', description: 'Device Set' }
-    ];
-    const startingPoints =
-      OPCUA_NAMESPACE === 'ns=3' || OPCUA_NAMESPACE === 'ns=2'
-        ? genericStarts
-        : [...genericStarts, ...codesysStarts];
 
     let allTags = [];
     const foundTags = new Set(); // To avoid duplicates
@@ -72,8 +47,8 @@ async function listAllTags() {
     for (const start of startingPoints) {
       try {
         console.log(`Trying ${start.description}...`);
-        const tags = await driver.listAllTags(start.nodeId, 12, OPCUA_NAMESPACE);
-        
+        const tags = await driver.listAllTags(start.nodeId, 10, "ns=4");
+
         // Add unique tags (by Node ID)
         for (const tag of tags) {
           if (!foundTags.has(tag.nodeId)) {
@@ -81,7 +56,7 @@ async function listAllTags() {
             foundTags.add(tag.nodeId);
           }
         }
-        
+
         if (tags.length > 0) {
           console.log(`  ✓ Found ${tags.length} tag(s) from ${start.description}\n`);
         }
@@ -108,12 +83,12 @@ async function listAllTags() {
         console.log(`Error browsing all namespaces: ${error.message}\n`);
       }
     }
+    process.exit(1);
 
     if (allTags.length === 0) {
       console.log('✗ No tags found.\n');
-      console.log('Hints:');
-      console.log('  CODESYS: enable OPC UA symbols; try OPCUA_NAMESPACE=ns=4');
-      console.log('  Siemens: try OPCUA_NAMESPACE=ns=3 and increase depth if needed\n');
+      console.log('Make sure OPC UA features are enabled in CODESYS:');
+      console.log('  Tools → Symbol Configuration → Enable "Support OPC UA Features"\n');
     } else {
       console.log(`\n✓ Found ${allTags.length} unique tag(s) total:\n`);
       displayTags(allTags);

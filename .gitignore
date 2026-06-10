@@ -12,3 +12,4 @@ build/
 coverage/
 .nyc_output/
 
+/tag-queue.db
