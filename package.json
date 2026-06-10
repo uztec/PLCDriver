@@ -23,7 +23,8 @@
     "tags": "node tags.js",
     "verify-db": "node verify-db.js",
     "listAllTags": "node examples/listAllTags.js",
-    "readTag": "node examples/readBoolTag.js"
+    "readTag": "node examples/readBoolTag.js",
+    "readTag:generic": "node examples/readTag.js"
   },
   "license": "ISC"
 }

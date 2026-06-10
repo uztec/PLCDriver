@@ -10,6 +10,8 @@ const plcAddress = config.plc.ip;
 const plcPort = config.plc.port || 4840; // OPC UA default port
 const scanRate = config.plc.scanRate || 500; // Polling interval in ms
 const dbPath = config.database.connectionString;
+const plcBrowseFrom = config.plc.opcuaBrowseFrom || 'ns=0;i=85';
+const plcNamespacePrefix = config.plc.opcuaNamespacePrefix || null;
 
 var tagList = require('./tags-to-listen.json');
 
@@ -18,6 +20,36 @@ const previousValues = new Map();
 
 // OPC UA driver will be loaded dynamically
 let driver = null;
+
+/** @param {object} tag tags-to-listen.json entry @param {*} opcDriver OPCUADriver instance */
+async function readListenableTagValue(tag, opcDriver) {
+	const browseOpts = {
+		startingNodeId: tag.opcuaBrowseFrom || plcBrowseFrom,
+		maxDepth: tag.opcuaBrowseMaxDepth || 25
+	};
+	if (tag.opcuaNamespacePrefix != null && tag.opcuaNamespacePrefix !== '') {
+		browseOpts.namespacePrefix = tag.opcuaNamespacePrefix;
+	} else if (plcNamespacePrefix) {
+		browseOpts.namespacePrefix = plcNamespacePrefix;
+	}
+
+	if (tag.opcuaBrowseName) {
+		if (tag.opcuaFieldPath) {
+			return opcDriver.readTagFieldByBrowseName(
+				tag.opcuaBrowseName,
+				tag.opcuaFieldPath,
+				browseOpts
+			);
+		}
+		return opcDriver.readTagByBrowseName(tag.opcuaBrowseName, browseOpts);
+	}
+
+	const nodeIdOrCode = tag.opcuaNodeId || tag.tagCode;
+	if (tag.opcuaFieldPath) {
+		return opcDriver.readTagField(nodeIdOrCode, tag.opcuaFieldPath);
+	}
+	return opcDriver.readTag(nodeIdOrCode);
+}
 
 main();
 
@@ -51,7 +83,7 @@ async function main() {
 		console.log(" -- Initializing tags -- ");
 		for (const tag of listenableTags) {
 			try {
-				const value = await driver.readTag(tag.tagCode);
+				const value = await readListenableTagValue(tag, driver);
 				previousValues.set(tag.tagCode, value);
 				console.log(` -- Tag ${tag.tagCode} initialized with value: ${value} -- `);
 				
@@ -88,7 +120,7 @@ function startPolling(tags, db) {
 	const pollInterval = setInterval(async () => {
 		for (const tag of tags) {
 			try {
-				const currentValue = await driver.readTag(tag.tagCode);
+				const currentValue = await readListenableTagValue(tag, driver);
 				const previousValue = previousValues.get(tag.tagCode);
 
 				// Check if value changed
