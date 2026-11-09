@@ -1,124 +1,203 @@
 'use strict'
+
 const { Controller, Tag, EthernetIP } = require("ethernet-ip");
-
-const { DINT, INT, BOOL } = EthernetIP.CIP.DataTypes.Types;
-
-// Using it as Queue
 const sqlite3 = require('sqlite3').verbose();
 
-const plcAddress = "10.37.156.6";
-//const plcAddress = "216.98.8.15";
+const { DINT, BOOL } = EthernetIP.CIP.DataTypes.Types;
 
-var tagList = require('./tags-to-listen');
+// Load configuration
+const config = require('./config.json');
 
-var attempt = 1;
+const plcAddress = config.plc.ip;
+const plcSlot = config.plc.slot != null ? config.plc.slot : 0;
+const scanRate = config.plc.scanRate || 500;
+const dbPath = config.database.connectionString;
+
+var tagList = require('./tags-to-listen.json');
+
+let PLC = null;
+let db = null;
+let shuttingDown = false;
+
 main();
 
 async function main() {
-	do 
-	{
-		await connectToPLCAndReadTags();
-		console.log("\n\n Wait 5 Seconds to next Attempt");
-		sleep(5000);
-
-	}while (attempt++ < 10)
-}
-
-async function connectToPLCAndReadTags() {
-
-	const PLC = new Controller();
-
 	try {
-		tagList.forEach(function (tag) {
-			if (tag.listenable) {
-				var tagType = (tag.function == 'counter') ? DINT : BOOL;
-				var plcTag = new Tag(tag.tagCode, null, tagType);
+		const listenableTags = tagList.filter(tag => tag.listenable && tag.tagCode);
 
-				PLC.subscribe(plcTag);
-				console.log(" -- Subscribing Tag " + tag.tagCode + " - " + JSON.stringify(tag));
+		if (listenableTags.length === 0) {
+			console.log(" -- No listenable tags found -- ");
+			process.exit(1);
+		}
+
+		console.log(` -- Found ${listenableTags.length} listenable tag(s) -- `);
+
+		db = await initializeDatabase(dbPath);
+
+		process.on('SIGINT', () => {
+			shutdown();
+		});
+
+		let attempt = 1;
+		while (!shuttingDown) {
+			try {
+				await connectToPLCAndReadTags(listenableTags, attempt);
+			} catch (err) {
+				console.log(" -- Error on Process -- ");
+				console.log(err);
+				if (err && err.stack) console.log(err.stack);
 			}
-		});
 
-		let db = await initializeDatabase('tag-queue.db');
+			safeDestroy(PLC);
+			PLC = null;
 
-		console.log(" -- Trying to Connect on PLC (" + plcAddress + ") --  Attempt " + attempt + "/10 ");
-		await PLC.connect(plcAddress, 0);
+			if (shuttingDown) break;
 
-		console.log(" -- Connected on PLC (" + plcAddress + ") -- ");
-		PLC.scan_rate = 500;
-		PLC.forEach((tag) => {
-
-			// Called on the First Successful Read from the Controller
-			tag.on("Initialized", (t) => {
-				console.log(t.name + " initialized with value: ", t.value);
-				RegisterTagData(t, db);
-			});
-
-			// Called if Tag.controller_value changes
-			tag.on("Changed", (t, oldValue) => {
-				console.log(t.name + " changed from: " + oldValue + " to :", t.value);
-				RegisterTagData(t, db);
-			});
-		});
-		
-		await PLC.scan();
-
-	}
-	catch (err) {
-		console.log(" -- Erron on Process -- ");
+			console.log(" -- Wait 5 seconds to next attempt -- ");
+			await sleep(5000);
+			attempt++;
+		}
+	} catch (err) {
+		console.log(" -- Error on Process -- ");
 		console.log(err);
-		console.log(err.stack);
+		if (err && err.stack) console.log(err.stack);
+		process.exit(1);
 	}
 }
 
-function RegisterTagData(tag, db) {
+async function connectToPLCAndReadTags(listenableTags, attempt) {
+	PLC = new Controller();
+
+	listenableTags.forEach(function (tag) {
+		var tagType = (tag.function == 'counter') ? DINT : BOOL;
+		var plcTag = new Tag(tag.tagCode, null, tagType);
+
+		PLC.subscribe(plcTag);
+		console.log(` -- Subscribing Tag ${tag.tagCode} (${tag.function}) -- `);
+	});
+
+	console.log(` -- Trying to Connect on PLC (${plcAddress}, slot ${plcSlot}) -- Attempt ${attempt} -- `);
+	await PLC.connect(plcAddress, plcSlot);
+
+	console.log(` -- Connected on PLC (${plcAddress}, slot ${plcSlot}) -- `);
+	PLC.scan_rate = scanRate;
+
+	PLC.forEach((tag) => {
+		tag.on("Initialized", (t) => {
+			console.log(` -- Tag ${t.name} initialized with value: ${t.value} -- `);
+			RegisterTagData(t.name, t.value, db);
+		});
+
+		tag.on("Changed", (t, oldValue) => {
+			console.log(` -- Tag ${t.name} changed from: ${oldValue} to: ${t.value} -- `);
+			RegisterTagData(t.name, t.value, db);
+		});
+	});
+
+	console.log(` -- Starting scan (interval: ${scanRate}ms) -- `);
+	await PLC.scan();
+}
+
+function RegisterTagData(tagCode, value, db) {
+	var tagData = null;
 	try {
-		var tagData = {
-			tagCode: tag.name,
+		let numericValue = value;
+		if (typeof value === 'boolean') {
+			numericValue = value ? 1 : 0;
+		} else if (typeof value === 'number') {
+			numericValue = value;
+		} else {
+			const parsed = Number(value);
+			numericValue = isNaN(parsed) ? value : parsed;
+		}
+
+		tagData = {
+			tagCode: tagCode,
 			date: new Date(),
-			value: Number(tag.value)
+			value: numericValue
 		};
-		console.log("Register: " + JSON.stringify(tagData));
+
+		console.log(" -- Register: " + JSON.stringify(tagData) + " -- ");
 
 		db.run('INSERT INTO QUEUE (job) VALUES(?)', [JSON.stringify(tagData)], function (err) {
-			if (err)
-				console.log("Error on register " + JSON.stringify(tagData) + "\nt--" + err.message);
-			else
-				console.log("Registered: " + JSON.stringify(tagData));
+			if (err) {
+				console.log(" -- Error on register " + JSON.stringify(tagData) + " -- " + err.message);
+			} else {
+				console.log(" -- Registered: " + JSON.stringify(tagData) + " -- ");
+			}
 		});
-	}
-	catch (err) {
-		console.log("Error on register Tag " + JSON.stringify(tagData) + "\nt--" + err.message);
+	} catch (err) {
+		console.log(" -- Error on register Tag " + JSON.stringify(tagData) + " -- " + err.message);
 	}
 }
 
-
 function initializeDatabase(dbPath) {
-
 	return new Promise(function (resolve, reject) {
 		let dbConnection = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, function (err) {
 			if (err) {
 				console.error(err.message);
 				reject(err.message);
-				throw err;
+				return;
 			}
-			else {
-				console.log('Connected on SQlite database.');
-			}
+			console.log(' -- Connected to SQLite database -- ');
 		});
 
 		let query = 'CREATE TABLE IF NOT EXISTS QUEUE (id INTEGER PRIMARY KEY ASC AUTOINCREMENT, job TEXT);'
 		dbConnection.exec(query, function (err) {
-			if (err !== null)
+			if (err !== null) {
 				reject(err);
-
-			resolve(dbConnection);
-
+			} else {
+				resolve(dbConnection);
+			}
 		});
 	});
 }
 
+function shutdown() {
+	if (shuttingDown) return;
+	shuttingDown = true;
+
+	console.log('\n -- Shutting down gracefully -- ');
+
+	if (PLC) {
+		try {
+			PLC.pauseScan();
+		} catch (err) {
+			// scan may already be stopped
+		}
+		safeDestroy(PLC);
+		PLC = null;
+	}
+
+	if (db) {
+		db.close((err) => {
+			if (err) {
+				console.error(' -- Error closing database -- ', err.message);
+			} else {
+				console.log(' -- Database closed -- ');
+			}
+			process.exit(0);
+		});
+	} else {
+		process.exit(0);
+	}
+}
+
+function safeDestroy(controller) {
+	if (!controller || controller.destroyed) return;
+	try {
+		controller.destroy();
+	} catch (err) {
+		try {
+			require('net').Socket.prototype.destroy.call(controller);
+		} catch (destroyErr) {
+			// socket already closed
+		}
+	}
+}
+
 function sleep(ms) {
-	var waitTill = new Date(new Date().getTime() + ms);
-	while (waitTill > new Date()) { }
+	return new Promise(function (resolve) {
+		setTimeout(resolve, ms);
+	});
 }
