@@ -21,6 +21,7 @@
     "listener": "node listener.js",
     "register": "node register.js",
     "tags": "node tags.js",
+    "tags-plc": "node tags-plc.js",
     "verify-db": "node verify-db.js",
     "listAllTags": "node examples/listAllTags.js",
     "readTag": "node examples/readBoolTag.js"
